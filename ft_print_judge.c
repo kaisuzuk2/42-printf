@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 13:48:38 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/04/29 20:00:40 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/04/29 20:36:33 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	ft_print_judge(va_list args, const char *format)
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == 'c')
-				res += ft_putchar((unsigned char)va_arg(args, int));
+				res += ft_putchar((char)va_arg(args, int));
 			else if (format[i + 1] == 's')
-				res += ft_putstr((char *)va_arg(args, char *));	
+				res += ft_putstr(va_arg(args, char *));	
 		}
 		else
 			ft_putchar(format[i]);
