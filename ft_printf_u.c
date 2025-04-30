@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 23:10:15 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/04/29 23:48:44 by kaisuzuk         ###   ########.fr       */
+/*   Created: 2025/04/30 13:10:01 by kaisuzuk          #+#    #+#             */
+/*   Updated: 2025/04/30 14:07:36 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	ft_print_judge(va_list args, const char *format);
-
-int ft_printf(const char *format, ...)
+void ft_printf_u(char *format)
 {
-	va_list args;
-	int res;
-	
-	va_start(args, format);
-	res = ft_print_judge(args, format);
-	va_end(args);	
-	return (res);
+	int base;
+
+	base = 10;
+	if (*format == '0')
+	{
+		++format;
+		base = ft_format_check(&format);
+	}
+	ft_putnbr((unsigned int)ft_convert_to_decimal(format, base));
 }
 
-int main(void)
-{
-	int a = 5;
-	ft_printf("%p", a);
-}

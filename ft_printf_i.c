@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_i.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 23:10:15 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/04/29 23:48:44 by kaisuzuk         ###   ########.fr       */
+/*   Created: 2025/04/30 13:04:20 by kaisuzuk          #+#    #+#             */
+/*   Updated: 2025/04/30 14:15:43 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	ft_print_judge(va_list args, const char *format);
-
-int ft_printf(const char *format, ...)
+void	ft_base(char *format)
 {
-	va_list args;
-	int res;
+	int		base;
+	int sign;
 	
-	va_start(args, format);
-	res = ft_print_judge(args, format);
-	va_end(args);	
-	return (res);
-}
-
-int main(void)
-{
-	int a = 5;
-	ft_printf("%p", a);
+	sign = 1;
+	base = 10;
+	if (*format == '-' || *format == '+')
+	{
+		if (*format == '-')
+			sign = -1;
+		format++;	
+	}
+	if (*format == '0')
+	{
+		++format;
+		base = ft_format_check(&format);
+	}
+	ft_putnbr(ft_convert_to_decimal(format, base) * sign);
 }

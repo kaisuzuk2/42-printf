@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 23:10:15 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/04/29 23:48:44 by kaisuzuk         ###   ########.fr       */
+/*   Created: 2025/04/29 23:46:24 by kaisuzuk          #+#    #+#             */
+/*   Updated: 2025/04/30 00:01:26 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_print_judge(va_list args, const char *format);
-
-int ft_printf(const char *format, ...)
+int  ft_printf_p(uintptr_t n)
 {
-	va_list args;
-	int res;
-	
-	va_start(args, format);
-	res = ft_print_judge(args, format);
-	va_end(args);	
-	return (res);
-}
+	static int i;
 
-int main(void)
-{
-	int a = 5;
-	ft_printf("%p", a);
+	i = 0;
+	i++;
+	if (n > 0)
+		ft_printf_p(n / 16);
+	ft_putchar("0123456789abcdef"[n % 16]);
+	return (i);
 }
