@@ -6,14 +6,14 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 15:03:27 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/04/30 15:06:12 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/04/30 21:30:36 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft.h"
 
-static to_upper_hex(unsigned int n)
+static void to_upper_hex(unsigned int n)
 {
 	char const *base = "0123456789ABCDEF";
 	char buf[20];
@@ -33,12 +33,30 @@ static to_upper_hex(unsigned int n)
 	ft_putstr(&buf[i]);
 }
 
+static int	ft_format_check(char **format)
+{
+	int	base;
+
+	if (**format == 'b')
+		base = 2;
+	else if (ft_isdigit(**format))
+		base = 8;
+	else
+		base = 16;
+	if (base == 2 || base == 16)
+		++*format;
+	return (base);
+}
+
+
 
 int ft_printf_ux(char *format)
 {
 	int out;
+	int base;
 
-	out = ft_convert_to_decimal(format);
+	base = ft_format_check(&format);
+	out = ft_convert_to_decimal(format, base);
 	to_upper_hex((unsigned int)out);
 	return (1);
 }

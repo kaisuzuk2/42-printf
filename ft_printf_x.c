@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 14:57:42 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/04/30 15:05:46 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/04/30 21:31:15 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,28 @@ static void to_hex(unsigned int n)
 	ft_putstr(&buf[i]);
 }
 
+static int	ft_format_check(char **format)
+{
+	int	base;
+
+	if (**format == 'b')
+		base = 2;
+	else if (ft_isdigit(**format))
+		base = 8;
+	else
+		base = 16;
+	if (base == 2 || base == 16)
+		++*format;
+	return (base);
+}
 
 int ft_printf_x(char *format)
 {
 	int out;
+	int base;
 
-	out = ft_convert_to_decimal(format);
+	base = ft_format_check(&format);
+	out = ft_convert_to_decimal(format, base);
 	to_hex((unsigned int)out);
 	return (1);
 }

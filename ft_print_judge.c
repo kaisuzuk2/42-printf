@@ -6,15 +6,17 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 13:48:38 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/04/30 13:03:03 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/04/30 21:55:28 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include "libft.h"
+#include <unistd.h>
 
 int	ft_print_judge(va_list args, const char *format)
 {
-	const char *op = "cspdiuxX%";
+	//const char *op = "cspdiuxX%";
 	int res;
 	int i;
 
@@ -25,15 +27,27 @@ int	ft_print_judge(va_list args, const char *format)
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == 'c')
-				res += ft_putchar((char)va_arg(args, int));
+				res += ft_putchar(va_arg(args, int));
 			else if (format[i + 1] == 's')
 				res += ft_putstr(va_arg(args, char *));	
 			else if (format[i + 1] == 'p')
 				res += ft_printf_p(va_arg(args, uintptr_t));
 			else if (format[i + 1] == 'd')
+			{
+				write(1, "ok\n", 3);	
 				res += ft_putnbr(va_arg(args, uintptr_t));
+			}
 			else if (format[i + 1] == 'i')
-				res += 
+				res += ft_printf_i(va_arg(args, char *));
+			else if (format[i + 1] == 'u')
+				res += ft_printf_u(va_arg(args, char *));
+			else if (format[i + 1] == 'x')
+				res += ft_printf_x(va_arg(args, char *));
+			else if (format[i + 1] == 'X')
+				res += ft_printf_ux(va_arg(args, char *));
+			else 
+				ft_putchar('%');
+			i++;
 		}
 		else
 			ft_putchar(format[i]);

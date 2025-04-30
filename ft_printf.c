@@ -6,13 +6,11 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 23:10:15 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/04/29 23:48:44 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/04/30 21:39:49 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-int	ft_print_judge(va_list args, const char *format);
 
 int ft_printf(const char *format, ...)
 {
@@ -23,10 +21,4 @@ int ft_printf(const char *format, ...)
 	res = ft_print_judge(args, format);
 	va_end(args);	
 	return (res);
-}
-
-int main(void)
-{
-	int a = 5;
-	ft_printf("%p", a);
 }
