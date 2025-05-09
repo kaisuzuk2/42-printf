@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_ux.c                                     :+:      :+:    :+:   */
+/*   ft_putnchar_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 15:03:27 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/05/01 20:38:15 by kaisuzuk         ###   ########.fr       */
+/*   Created: 2025/05/08 16:44:40 by kaisuzuk          #+#    #+#             */
+/*   Updated: 2025/05/09 16:38:00 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int ft_printf_ux(unsigned int un)
+int	ft_putnchar(int c, int size)
 {
-	char buf[18];
-	size_t i;
+	int	res;
 
-	i = 17;
-	buf[i] = '\0';
-	while (1)
+	res = 0;
+	while (size--)
 	{
-		buf[--i] = "0123456789ABCDEF"[un % 16];
-		un /= 16;
-		if (!un)
-			break;
+		if (ft_putchar(c) == -1)
+			return (-1);
+		res++;
 	}
-	return (ft_putstr(&buf[i]));
+	return (res);
 }

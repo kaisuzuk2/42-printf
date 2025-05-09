@@ -6,13 +6,13 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:59:54 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/05/01 11:00:26 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/05/03 13:53:30 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	return (write(1, &c, 1));
 }

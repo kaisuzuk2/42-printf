@@ -1,15 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/02 00:35:49 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/05/02 00:36:30 by kaisuzuk         ###   ########.fr       */
+/*   Created: 2025/05/07 21:56:07 by kaisuzuk          #+#    #+#             */
+/*   Updated: 2025/05/09 17:08:21 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include "libft.h"
 
-int ft_putnbr_bonus(char *,)
+char	*ft_utoa(unsigned int un)
+{
+	char	buf[11];
+	int		i;
+
+	i = 10;
+	buf[i] = '\0';
+	while (1)
+	{
+		buf[--i] = un % 10 + '0';
+		un /= 10;
+		if (!un)
+			break ;
+	}
+	return (ft_strdup(&buf[i]));
+}

@@ -6,16 +6,16 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:10:01 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/05/01 16:28:54 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:58:10 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf_u(unsigned int un)
+int	ft_printf_u(unsigned int un)
 {
-	char buf[11];
-	int i;
+	char	buf[11];
+	int		i;
 
 	i = 10;
 	buf[i] = '\0';
@@ -24,8 +24,7 @@ int ft_printf_u(unsigned int un)
 		buf[--i] = "0123456789"[un % 10];
 		un /= 10;
 		if (!un)
-			break;
+			break ;
 	}
 	return (ft_putstr(&buf[i]));
 }
-

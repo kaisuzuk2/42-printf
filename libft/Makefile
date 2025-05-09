@@ -6,7 +6,7 @@
 #    By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/25 09:40:16 by kaisuzuk          #+#    #+#              #
-#    Updated: 2025/05/01 15:57:11 by kaisuzuk         ###   ########.fr        #
+#    Updated: 2025/05/08 11:09:21 by kaisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,8 @@ SRCS =	ft_strlen.c \
 				ft_convert_to_decimal.c \
 				ft_putnbr.c \
 				ft_putstr.c \
-				ft_putchar.c
+				ft_putchar.c \
+				ft_utoa.c
 B_SRCS=	ft_lstnew.c \
 	 ft_lstadd_front.c \
 	 ft_lstsize.c \
@@ -77,6 +78,7 @@ bonus: $(NAME) $(BOBJS)
 
 clean: 
 	rm -rf $(OBJS)
+	rm -rf $(BOBJS)
 
 fclean: clean
 	rm -rf $(NAME)

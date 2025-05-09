@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 17:05:37 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/05/01 20:32:16 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:08:48 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_putnbr(int n)
 {
-	int res;
-	int i;
-	char buf[12];
-	long int un;
+	int			res;
+	int			i;
+	char		buf[12];
+	long int	un;
 
 	res = 0;
 	i = 11;

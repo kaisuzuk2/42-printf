@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 09:32:53 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/05/01 12:05:11 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/05/07 22:00:17 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,10 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 int					ft_putnbr(int n);
 char				*ft_strreverse(char *str);
-int					ft_convert_to_decimal(char *format, int base);
-int ft_putstr(const char *str);
-int ft_putchar(char c);
 
+int					ft_convert_to_decimal(char *format, int base);
+int					ft_putstr(const char *str);
+int					ft_putchar(char c);
+char				*ft_utoa(unsigned int un);
 
 #endif
