@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 18:53:12 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/05/08 11:18:31 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/06/01 00:50:36 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_printout_c(const unsigned char uc, t_flg *flg)
 			return (-1);
 		res++;
 	}
-	while (--flg->field_width)
+	while (flg->field_width && --flg->field_width)
 	{
 		if (ft_putchar(' ') == -1)
 			return (-1);
