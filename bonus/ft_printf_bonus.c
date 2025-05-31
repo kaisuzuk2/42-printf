@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:55:43 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/05/09 17:02:41 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/06/01 00:45:03 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		res;
 
+	if (format == NULL)
+		return (-1);
 	if (ft_strchr(format, '%') == NULL)
 		return (ft_putstr(format));
 	va_start(args, format);
